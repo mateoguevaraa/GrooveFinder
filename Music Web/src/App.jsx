@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { genres } from "./data/edc-genres.json";
+import { genres } from "./data/music-genres.json";
 import "./style.css";
 
 const clientIdSpotify = import.meta.env.VITE_SPOTIFY_CLIENT_ID;
@@ -16,7 +16,7 @@ function App() {
       randomNumber = Math.floor(Math.random() * genres.length);
     } while (randomNumber === randomIndex);
 
-    const genreRandom = genres[randomNumber];
+    const genreRandom = genres[randomNumber].name;
     setGenre(genreRandom);
     setRandomIndex(randomNumber);
     searchArtistByGenre(genreRandom);
