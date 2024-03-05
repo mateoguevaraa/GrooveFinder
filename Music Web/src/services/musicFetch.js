@@ -12,7 +12,7 @@ export function useTracks() {
   async function searchArtistByGenre(genre) {
     const offset = Math.floor(Math.random() * 20);
     const response = await fetch(
-      `https://api.spotify.com/v1/search?q=genre%3A${genre}&type=track&offset=${offset}&limit=30`,
+      `https://api.spotify.com/v1/search?q=genre%3A${genre}&type=track&offset=${offset}&limit=15`,
       {
         headers: {
           Authorization: "Bearer " + (await getAccessToken()),
