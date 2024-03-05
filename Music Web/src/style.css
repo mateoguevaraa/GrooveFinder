@@ -9,7 +9,29 @@ main {
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
-.search-form {
+.tracks-display {
+  margin: 0;
+  padding: 0;
+  align-items: center;
+  justify-content: center;
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 32px;
+}
+
+.tracks-display img {
+  width: 80%;
+  border-radius: 4px;
+}
+
+.tracks {
   display: flex;
-  gap: 10px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+card {
+  background-color: black !important;
 }
