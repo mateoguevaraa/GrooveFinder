@@ -10,7 +10,7 @@ export function TrackCard({ trackName, artist, imageUrl }) {
         <p>
           <strong className="card-title">{trackName}</strong>
         </p>
-        <p>{artist}</p>
+        <p className="card-description">{artist}</p>
       </div>
     </div>
   );

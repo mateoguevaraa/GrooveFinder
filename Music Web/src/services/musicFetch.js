@@ -8,9 +8,11 @@ export function useTracks() {
   const [tracks, setTracks] = useState([]);
   const [randomIndex, setRandomIndex] = useState();
   const [genre, setGenre] = useState();
+  const [loading, setLoading] = useState(false);
 
   async function searchArtistByGenre(genre) {
-    const offset = Math.floor(Math.random() * 20);
+    setLoading(true);
+    const offset = Math.floor(Math.random() * 40);
     const response = await fetch(
       `https://api.spotify.com/v1/search?q=genre%3A${genre}&type=track&offset=${offset}&limit=15`,
       {
@@ -23,6 +25,7 @@ export function useTracks() {
     const data = await response.json();
     const tracksFetch = data.tracks.items;
     setTracks(tracksFetch);
+    setLoading(false);
   }
 
   const handleGenreGenerator = () => {
@@ -51,5 +54,5 @@ export function useTracks() {
     return data.access_token;
   }
 
-  return { tracks, handleGenreGenerator, genre };
+  return { tracks, handleGenreGenerator, genre, loading };
 }
