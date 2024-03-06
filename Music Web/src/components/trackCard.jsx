@@ -1,4 +1,5 @@
-import { useState, useRef } from "react";
+import { useState, useEffect } from "react";
+import { usePlayingContext } from "../context/PlayingSongContext";
 
 export function TrackCard({
   trackName,
@@ -7,37 +8,24 @@ export function TrackCard({
   songUrl,
   previewUrl,
 }) {
+  const { playTrack, audioRef } = usePlayingContext();
   const [isPlaying, setIsPlaying] = useState(false);
-  const [currentTrack, setCurrentTrack] = useState(null);
-  const audioRef = useRef(null);
+
+  useEffect(() => {
+    if (audioRef.current.play) {
+      if (audioRef.current.src === previewUrl) {
+        setIsPlaying(true);
+      } else {
+        setIsPlaying(false);
+      }
+    }
+  }, [audioRef, previewUrl]);
 
   const toggleAudio = () => {
     setIsPlaying(!isPlaying);
-    if (!isPlaying) {
-      audioRef.current.play();
-      setCurrentTrack(previewUrl);
-    } else {
-      audioRef.current.pause();
-      setCurrentTrack(null);
-    }
-  };
-
-  const playTrack = () => {
-    if (currentTrack === previewUrl) {
-      toggleAudio();
-    } else {
-      if (currentTrack) {
-        const prevAudio = document.querySelector(
-          `audio[src="${currentTrack}"]`
-        );
-        if (prevAudio) {
-          prevAudio.pause();
-        }
-      }
-      setCurrentTrack(previewUrl);
-      setIsPlaying(true);
-      audioRef.current.play();
-    }
+    // si el src del audio es null mostrar una alerta o
+    // notificación de que no esta disponible
+    playTrack(previewUrl);
   };
 
   return (
@@ -62,14 +50,13 @@ export function TrackCard({
         </p>
         <div className="card-bottom">
           <p className="card-description">{artist}</p>
-          <button className="button-audio" onClick={playTrack}>
-            {isPlaying ? (
-              <i className="fa-solid fa-pause pause-button"></i>
-            ) : (
-              <i className="fa-solid fa-play play-button"></i>
-            )}
+          <button className="button-audio" onClick={toggleAudio}>
+            <i
+              className={`fa-solid ${
+                isPlaying ? "fa-pause pause-button" : "fa-play play-button"
+              }`}
+            ></i>
           </button>
-          <audio ref={audioRef} src={previewUrl}></audio>
         </div>
       </div>
     </div>
