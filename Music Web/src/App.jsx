@@ -44,14 +44,18 @@ function App() {
                   trackName={track.name}
                   artist={track.artists[0].name}
                   imageUrl={track.album.images[1].url}
+                  songUrl={track.external_urls.spotify}
                   key={track.id}
                 />
               );
             })
           ) : firstTime ? (
             <p className="welcome-message">
-              <strong>Ready to uncover new beats? </strong>
+              <strong className="welcome-important">
+                Ready to uncover new beats?{" "}
+              </strong>
               <br />
+              <div className="mt-2"></div>
               Click the button and let the genre exploration begin!
             </p>
           ) : (
