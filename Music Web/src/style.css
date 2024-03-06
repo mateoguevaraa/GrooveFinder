@@ -83,10 +83,6 @@ p {
   background-color: rgba(90, 89, 89, 0.149);
 }
 
-.card-body {
-  margin-bottom: 32px;
-}
-
 .image-container {
   position: relative;
 }
@@ -103,7 +99,8 @@ p {
 }
 
 .image-container:hover .overlay {
-  background-color: rgba(0, 255, 4, 0.651);
+  background-color: #0ed636c2;
+  border: 1.5px solid rgb(0, 0, 0);
 }
 
 .centered-button {
@@ -138,13 +135,57 @@ p {
   border-color: #030303d8; /* Mostrar el botón al hacer hover sobre la imagen */
 }
 
+.card-name {
+  padding-bottom: 24px;
+}
+
 .card-description {
-  margin-bottom: 16px;
+  margin: 0;
   color: rgba(255, 255, 255, 0.522);
-  position: absolute;
   bottom: 0;
   left: 16px;
   right: 16px;
+}
+
+.play-button {
+  color: rgba(255, 255, 255, 0.779);
+  margin-bottom: -2px;
+  font-size: 1.5rem;
+  margin-top: 2px;
+}
+
+.pause-button {
+  color: rgba(255, 255, 255, 0.779);
+  margin-bottom: -2px;
+  font-size: 1.5rem;
+}
+
+.button-audio {
+  margin-bottom: -3px;
+  background-color: transparent;
+  border-color: transparent;
+}
+
+.button-audio:hover {
+  .pause-button {
+    color: #0ed636c2;
+  }
+
+  .play-button {
+    color: #0ed636c2;
+  }
+}
+
+.card-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
 }
 
 .genre-title {

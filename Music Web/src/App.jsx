@@ -45,6 +45,7 @@ function App() {
                   artist={track.artists[0].name}
                   imageUrl={track.album.images[1].url}
                   songUrl={track.external_urls.spotify}
+                  previewUrl={track.preview_url}
                   key={track.id}
                 />
               );
@@ -55,7 +56,6 @@ function App() {
                 Ready to uncover new beats?{" "}
               </strong>
               <br />
-              <div className="mt-2"></div>
               Click the button and let the genre exploration begin!
             </p>
           ) : (
