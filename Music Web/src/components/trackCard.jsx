@@ -1,33 +1,19 @@
-import { useState, useEffect } from "react";
-import { usePlayingContext } from "../context/PlayingSongContext";
+import { CardPlayButton } from "./CardPlayButton";
 
 export function TrackCard({
+  // eslint-disable-next-line react/prop-types
   trackName,
+  // eslint-disable-next-line react/prop-types
   artist,
+  // eslint-disable-next-line react/prop-types
   imageUrl,
+  // eslint-disable-next-line react/prop-types
   songUrl,
+  // eslint-disable-next-line react/prop-types
   previewUrl,
+  // eslint-disable-next-line react/prop-types
+  trackId,
 }) {
-  const { playTrack, audioRef } = usePlayingContext();
-  const [isPlaying, setIsPlaying] = useState(false);
-
-  useEffect(() => {
-    if (audioRef.current.play) {
-      if (audioRef.current.src === previewUrl) {
-        setIsPlaying(true);
-      } else {
-        setIsPlaying(false);
-      }
-    }
-  }, [audioRef, previewUrl]);
-
-  const toggleAudio = () => {
-    setIsPlaying(!isPlaying);
-    // si el src del audio es null mostrar una alerta o
-    // notificación de que no esta disponible
-    playTrack(previewUrl);
-  };
-
   return (
     <div className="card">
       <div className="image-container">
@@ -50,13 +36,12 @@ export function TrackCard({
         </p>
         <div className="card-bottom">
           <p className="card-description">{artist}</p>
-          <button className="button-audio" onClick={toggleAudio}>
-            <i
-              className={`fa-solid ${
-                isPlaying ? "fa-pause pause-button" : "fa-play play-button"
-              }`}
-            ></i>
-          </button>
+          <CardPlayButton
+            url={previewUrl}
+            artist={artist}
+            trackName={trackName}
+            id={trackId}
+          />
         </div>
       </div>
     </div>

@@ -164,6 +164,7 @@ p {
   margin-bottom: -3px;
   background-color: transparent;
   border-color: transparent;
+  border-radius: 100%;
   margin-left: 16px;
   margin-top: auto;
 }
