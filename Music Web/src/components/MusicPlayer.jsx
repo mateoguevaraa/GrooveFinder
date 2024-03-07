@@ -7,7 +7,7 @@ export const Pause = () => <i className="fa-solid fa-pause pause-button"></i>;
 export const Play = () => <i className="fa-solid fa-play play-button"></i>;
 
 export function MusicPlayer() {
-  const { isPlaying, setIsPlaying, currentTrack } = useTrackStore(
+  const { isPlaying, currentTrack } = useTrackStore(
     (state) => state
   );
   const audioRef = useRef();

@@ -1,3 +1,15 @@
+@media (min-width: 768px) {
+  .welcome-important {
+    font-size: 4.5rem;
+    line-height: 1.07;
+  }
+
+  .welcome-description {
+    font-size: 1.25rem;
+    line-height: 2rem;
+  }
+}
+
 @media screen and (min-width: 1024px) {
   .tracks-display {
     padding: 0.8rem;
@@ -8,8 +20,14 @@
   .btn {
     margin-left: 0.8rem;
   }
+  .no-found {
+    margin-left: 0.8rem;
+  }
   .skeleton-img {
     height: 257px;
+  }
+  .hero-section {
+    margin-top: 110px;
   }
 }
 
@@ -22,6 +40,10 @@
   }
   .btn {
     margin-left: 2.5rem;
+  }
+  .no-found {
+    margin-left: 2.5rem;
+    margin-right: 2.5rem;
   }
   .skeleton-img {
     height: 348.33px;
@@ -38,6 +60,10 @@
   }
   .btn {
     margin-left: 2.5rem;
+  }
+  .no-found {
+    margin-left: 2.5rem;
+    margin-right: 2.5rem;
   }
   .skeleton-img {
     height: 422px;
@@ -132,11 +158,12 @@ p {
 
 .image-container:hover .centered-button {
   opacity: 1;
-  border-color: #030303d8; /* Mostrar el botón al hacer hover sobre la imagen */
+  border-color: #030303d8;
 }
 
 .card-name {
   padding-bottom: 24px;
+  font-size: 1.1rem;
 }
 
 .card-description {
@@ -167,6 +194,7 @@ p {
   border-radius: 100%;
   margin-left: 16px;
   margin-top: auto;
+  outline: none;
 }
 
 .button-audio:hover {
@@ -227,6 +255,13 @@ a.nav-link {
   color: rgba(255, 255, 255, 0.925);
 }
 
+.btn-hero-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 .btn {
   background-color: transparent;
   border: 1.8px solid white;
@@ -248,15 +283,39 @@ a.nav-link {
   font-size: 32px;
 }
 
-.welcome-important {
-  color: rgba(255, 255, 255, 0.937);
+.btn-hero {
+  background-color: transparent;
+  border: 1.8px solid white;
+  border-radius: 24px;
+  padding: 4px 24px 5px 24px;
+  color: white;
+  font-weight: 600;
+  font-size: 22px;
+  margin-top: 40px;
 }
 
-.welcome-message {
-  color: rgba(255, 255, 255, 0.775);
-  font-size: 32px;
-  font-weight: 400;
-  margin-top: 32px;
+.btn-hero:hover {
+  background-color: rgb(255, 255, 255);
+  color: black;
+}
+
+.hero-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.welcome-important {
+  color: rgba(255, 255, 255, 0.918);
+  font-weight: 700;
+  text-align: center;
+}
+
+.welcome-description {
+  font-size: 1.25em;
+  color: rgba(197, 197, 206, 0.911);
+  margin-top: 24px;
 }
 
 .skeleton {
@@ -302,4 +361,10 @@ a.nav-link {
   100% {
     background-color: #a3a2a32a;
   }
+}
+
+.notification {
+  background-color: rgba(26, 25, 25, 0.149);
+  color: white;
+  font-weight: 300;
 }

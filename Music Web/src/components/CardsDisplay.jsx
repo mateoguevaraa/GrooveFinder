@@ -11,63 +11,81 @@ export function CardsDisplay() {
   const { setCurrentTrack } = useTrackStore((state) => state);
 
   const userFirstTime = () => {
-    if (firstTime) {
-      setFirstTime(false);
-    }
+    setFirstTime(false);
   };
 
   return (
     <>
-      <button
-        onClick={() => {
-          handleGenreGenerator();
-          userFirstTime();
-          setCurrentTrack({
-            id: null,
-            artist: null,
-            trackName: null,
-            previewUrl: null,
-          });
-        }}
-        className="btn"
-      >
-        Find New Genre
-      </button>
+      {firstTime ? null : (
+        <button
+          onClick={() => {
+            handleGenreGenerator();
+            userFirstTime();
+            setCurrentTrack({
+              id: null,
+              artist: null,
+              trackName: null,
+              previewUrl: null,
+            });
+          }}
+          className="btn"
+        >
+          Find New Genre
+        </button>
+      )}
       {genre ? <h3 className="genre-title">{genre}</h3> : null}
-      <section className="tracks-display">
-        {tracks.length > 0 ? <MusicPlayer /> : null}
-        {loading ? (
-          <>
-            <TrackCardSkeleton />
-            <TrackCardSkeleton />
-            <TrackCardSkeleton />
-          </>
-        ) : tracks.length > 0 ? (
-          tracks.map(function (track) {
-            return (
-              <TrackCard
-                trackName={track.name}
-                artist={track.artists[0].name}
-                imageUrl={track.album.images[1].url}
-                songUrl={track.external_urls.spotify}
-                previewUrl={track.preview_url}
-                key={track.uri}
-                trackId={track.id}
-              />
-            );
-          })
-        ) : firstTime ? (
-          <p className="welcome-message">
-            <strong className="welcome-important">
-              Ready to uncover new beats?{" "}
-            </strong>
-            <br />
+      {firstTime ? null : (
+        <section className="tracks-display">
+          {tracks.length > 0 ? <MusicPlayer /> : null}
+          {loading ? (
+            <>
+              <TrackCardSkeleton />
+              <TrackCardSkeleton />
+              <TrackCardSkeleton />
+            </>
+          ) : tracks.length > 0 ? (
+            tracks.map(function (track) {
+              return (
+                <TrackCard
+                  trackName={track.name}
+                  artist={track.artists[0].name}
+                  imageUrl={track.album.images[1].url}
+                  songUrl={track.external_urls.spotify}
+                  previewUrl={track.preview_url}
+                  key={track.uri}
+                  trackId={track.id}
+                />
+              );
+            })
+          ) : null}
+        </section>
+      )}
+      {tracks.length === 0 && firstTime ? (
+        <div className="hero-section">
+          <h1 className="welcome-important">Ready to uncover new beats?</h1>
+          <h2 className="welcome-description">
             Click the button and let the genre exploration begin!
-          </p>
-        ) : (
-          <p className="no-found">Oops, no tunes found in the {genre} genre.</p>
-        )}
-      </section>
+          </h2>
+          <button
+            onClick={() => {
+              handleGenreGenerator();
+              userFirstTime();
+              setCurrentTrack({
+                id: null,
+                artist: null,
+                trackName: null,
+                previewUrl: null,
+              });
+            }}
+            className="btn-hero"
+          >
+            Find New Genre
+          </button>
+        </div>
+      ) : null}
+      {firstTime === false && loading === false && tracks.length === 0 ? (
+        <p className="no-found">Oops, no tunes found in the {genre} genre.</p>
+      ) : null}
     </>
   );
 }
