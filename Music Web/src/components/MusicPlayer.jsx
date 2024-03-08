@@ -7,7 +7,7 @@ export const Pause = () => <i className="fa-solid fa-pause pause-button"></i>;
 export const Play = () => <i className="fa-solid fa-play play-button"></i>;
 
 export function MusicPlayer() {
-  const { isPlaying, currentTrack } = useTrackStore(
+  const { isPlaying, currentTrack, setCurrentTrack } = useTrackStore(
     (state) => state
   );
   const audioRef = useRef();
@@ -22,8 +22,11 @@ export function MusicPlayer() {
   }, [isPlaying, currentTrack]);
 
   return (
-    <>
-      <audio ref={audioRef} src={currentTrack.previewUrl}></audio>
-    </>
+      <audio ref={audioRef} src={currentTrack.previewUrl} onEnded={() => {      setCurrentTrack({
+        id: null,
+        artist: null,
+        trackName: null,
+        previewUrl: null,
+      })}}></audio>
   );
 }

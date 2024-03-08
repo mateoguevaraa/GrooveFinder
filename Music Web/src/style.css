@@ -1,13 +1,58 @@
 @media (min-width: 768px) {
-  .welcome-important {
-    font-size: 4.5rem;
-    line-height: 1.07;
-  }
+}
 
-  .welcome-description {
-    font-size: 1.25rem;
-    line-height: 2rem;
-  }
+.btn-hero {
+  background-color: transparent;
+  border: 1.8px solid white;
+  border-radius: 24px;
+  padding: 4px 24px 5px 24px;
+  color: white;
+  font-weight: 600;
+  font-size: 22px;
+  margin-top: 40px;
+}
+
+.btn-hero:hover {
+  background-color: rgb(255, 255, 255);
+  color: black;
+}
+
+.hero-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.welcome-important {
+  color: rgb(247, 248, 248);
+  margin: 0;
+  font-weight: 600;
+  text-align: center;
+  white-space: pre-line;
+  line-height: 105%;
+  letter-spacing: -3px;
+}
+
+.welcome-description {
+  font-size: 1.25em;
+  color: rgba(255, 255, 255, 0.763);
+  margin-top: 20px;
+  text-align: center;
+  max-width: 65%;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.w-gradient {
+  background-image: linear-gradient(to right, #11998e, #38ef7d);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+html,
+body {
+  height: 100%;
 }
 
 @media screen and (min-width: 1024px) {
@@ -27,7 +72,16 @@
     height: 257px;
   }
   .hero-section {
-    margin-top: 110px;
+    margin-top: 95px;
+  }
+
+  .welcome-important {
+    font-size: 4.8rem;
+  }
+
+  .welcome-description {
+    font-size: 18px;
+    line-height: 2rem;
   }
 }
 
@@ -47,6 +101,10 @@
   }
   .skeleton-img {
     height: 348.33px;
+  }
+  .hero-section {
+    margin-top: 95px;
+    padding: 0px 30px 0px 30px;
   }
 }
 
@@ -77,8 +135,10 @@ body {
 main {
   max-width: 850px;
   margin: 0 auto;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-variation-settings: "slnt" 0;
 }
 
 p {
@@ -125,7 +185,7 @@ p {
 }
 
 .image-container:hover .overlay {
-  background-color: #0ed636c2;
+  background-image: linear-gradient(to right, #11998ea3, #38ef7ea1);
   border: 1.5px solid rgb(0, 0, 0);
 }
 
@@ -192,18 +252,18 @@ p {
   background-color: transparent;
   border-color: transparent;
   border-radius: 100%;
-  margin-left: 16px;
+  margin-left: 14px;
   margin-top: auto;
   outline: none;
 }
 
 .button-audio:hover {
   .pause-button {
-    color: #0ed636c2;
+    color: #38ef7d;
   }
 
   .play-button {
-    color: #0ed636c2;
+    color: #38ef7d;
   }
 }
 
@@ -281,41 +341,6 @@ a.nav-link {
 .no-found {
   color: rgba(255, 255, 255, 0.573);
   font-size: 32px;
-}
-
-.btn-hero {
-  background-color: transparent;
-  border: 1.8px solid white;
-  border-radius: 24px;
-  padding: 4px 24px 5px 24px;
-  color: white;
-  font-weight: 600;
-  font-size: 22px;
-  margin-top: 40px;
-}
-
-.btn-hero:hover {
-  background-color: rgb(255, 255, 255);
-  color: black;
-}
-
-.hero-section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.welcome-important {
-  color: rgba(255, 255, 255, 0.918);
-  font-weight: 700;
-  text-align: center;
-}
-
-.welcome-description {
-  font-size: 1.25em;
-  color: rgba(197, 197, 206, 0.911);
-  margin-top: 24px;
 }
 
 .skeleton {

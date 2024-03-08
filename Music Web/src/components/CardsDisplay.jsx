@@ -30,10 +30,10 @@ export function CardsDisplay() {
           }}
           className="btn"
         >
-          Find New Genre
+          Explore New Genre
         </button>
       )}
-      {genre ? <h3 className="genre-title">{genre}</h3> : null}
+      {genre ? <h3 className="genre-title">{genre}<span className="w-gradient">.</span></h3> : null}
       {firstTime ? null : (
         <section className="tracks-display">
           {tracks.length > 0 ? <MusicPlayer /> : null}
@@ -43,28 +43,33 @@ export function CardsDisplay() {
               <TrackCardSkeleton />
               <TrackCardSkeleton />
             </>
-          ) : tracks.length > 0 ? (
-            tracks.map(function (track) {
-              return (
-                <TrackCard
-                  trackName={track.name}
-                  artist={track.artists[0].name}
-                  imageUrl={track.album.images[1].url}
-                  songUrl={track.external_urls.spotify}
-                  previewUrl={track.preview_url}
-                  key={track.uri}
-                  trackId={track.id}
-                />
-              );
-            })
           ) : null}
+          {tracks.length > 0 && loading === false
+            ? tracks.map(function (track) {
+                return (
+                  <TrackCard
+                    trackName={track.name}
+                    artist={track.artists[0].name}
+                    imageUrl={track.album.images[1].url}
+                    songUrl={track.external_urls.spotify}
+                    previewUrl={track.preview_url}
+                    key={track.uri}
+                    trackId={track.id}
+                  />
+                );
+              })
+            : null}
         </section>
       )}
       {tracks.length === 0 && firstTime ? (
         <div className="hero-section">
-          <h1 className="welcome-important">Ready to uncover new beats?</h1>
+          <h1 className="welcome-important">
+            Discover New <span className="w-gradient">Grooves</span>, Expand
+            Your Playlists
+          </h1>
           <h2 className="welcome-description">
-            Click the button and let the genre exploration begin!
+            Unlock hidden grooves, explore new beats, and expand your music
+            realm with GrooveFinder.
           </h2>
           <button
             onClick={() => {
@@ -79,7 +84,7 @@ export function CardsDisplay() {
             }}
             className="btn-hero"
           >
-            Find New Genre
+            Explore New Tracks
           </button>
         </div>
       ) : null}
