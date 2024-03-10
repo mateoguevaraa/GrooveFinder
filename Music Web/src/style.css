@@ -1,20 +1,17 @@
-@media (min-width: 768px) {
-}
-
 .btn-hero {
   background-color: transparent;
-  border: 1.8px solid white;
+  border: 1.8px solid rgba(255, 255, 255, 0.905);
   border-radius: 24px;
   padding: 4px 24px 5px 24px;
   color: white;
-  font-weight: 600;
-  font-size: 22px;
+  font-weight: 500;
   margin-top: 40px;
+  box-shadow: 0 0px 10px 1.5px #38ef7eb7, 0 2px 10px 2px #11998e83;
 }
 
 .btn-hero:hover {
-  background-color: rgb(255, 255, 255);
-  color: black;
+  border-color: rgba(255, 255, 255, 0.868);
+  box-shadow: 0 0px 15px 1px #38ef7edf, 0 2px 13px 1.5px #11998eb3;
 }
 
 .hero-section {
@@ -39,7 +36,6 @@
   color: rgba(255, 255, 255, 0.763);
   margin-top: 20px;
   text-align: center;
-  max-width: 65%;
   font-weight: 400;
   line-height: 1.5;
 }
@@ -58,6 +54,7 @@ body {
 @media screen and (min-width: 1024px) {
   .tracks-display {
     padding: 0.8rem;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
   .genre-title {
     padding-left: 0.8rem;
@@ -67,6 +64,8 @@ body {
   }
   .no-found {
     margin-left: 0.8rem;
+    margin-top: 32px;
+    font-size: 28px;
   }
   .skeleton-img {
     height: 257px;
@@ -82,12 +81,36 @@ body {
   .welcome-description {
     font-size: 18px;
     line-height: 2rem;
+    max-width: 65%;
+  }
+
+  .btn-hero {
+    font-size: 22px;
+  }
+
+  .btn {
+    font-size: 22px;
+  }
+
+  .hero-image-section {
+    margin-top: 164px;
+    padding: 64px 0px;
+  }
+
+  .images-slide img {
+    height: 250px;
+    margin: 0 40px;
+  }
+
+  .navbar-brand {
+    font-size: 24px;
   }
 }
 
-@media screen and (max-width: 1023px) and (min-width: 768px) {
+@media screen and (max-width: 1024px) and (min-width: 768px) {
   .tracks-display {
     padding: 2.5rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
   .genre-title {
     padding-left: 2.5rem;
@@ -98,19 +121,52 @@ body {
   .no-found {
     margin-left: 2.5rem;
     margin-right: 2.5rem;
+    margin-top: 32px;
+    font-size: 28px;
   }
   .skeleton-img {
     height: 348.33px;
   }
   .hero-section {
     margin-top: 95px;
-    padding: 0px 30px 0px 30px;
+    padding: 0px 50px 0px 50px;
+  }
+
+  .welcome-important {
+    font-size: 70px;
+  }
+
+  .welcome-description {
+    max-width: 80%;
+    font-size: 16px;
+  }
+
+  .btn-hero {
+    font-size: 18px;
+  }
+
+  .btn {
+    font-size: 22px;
+  }
+
+  .hero-image-section {
+    margin-top: 120px;
+    padding: 44px 0;
+  }
+
+  .images-slide img {
+    height: 250px;
+    margin: 0 40px;
+  }
+  .navbar-brand {
+    font-size: 24px;
   }
 }
 
 @media screen and (max-width: 767px) {
   .tracks-display {
     padding: 2.5rem;
+    grid-template-columns: repeat(1, minmax(0, 1fr));
   }
   .genre-title {
     padding-left: 2.5rem;
@@ -122,9 +178,47 @@ body {
   .no-found {
     margin-left: 2.5rem;
     margin-right: 2.5rem;
+    margin-top: 32px;
+    font-size: 20px;
   }
   .skeleton-img {
     height: 422px;
+  }
+  .hero-section {
+    margin-top: 66px;
+    padding: 0px 20px 0px 20px;
+  }
+  .welcome-important {
+    font-size: 32px;
+  }
+  .welcome-description {
+    font-size: 16px;
+    max-width: 85%;
+  }
+  .btn-hero {
+    font-size: 16px;
+  }
+
+  .btn {
+    font-size: 18px;
+  }
+
+  .hero-image-section {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+  .hero-image-section {
+    margin-top: 100px;
+    padding: 44px 0;
+  }
+
+  .images-slide img {
+    height: 200px;
+    margin: 0 40px;
+  }
+
+  .navbar-brand {
+    font-size: 18px;
   }
 }
 
@@ -151,7 +245,6 @@ p {
   justify-content: center;
   display: grid;
   width: 100%;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 24px;
   margin-bottom: 32px;
 }
@@ -185,7 +278,7 @@ p {
 }
 
 .image-container:hover .overlay {
-  background-image: linear-gradient(to right, #11998ea3, #38ef7ea1);
+  background-image: linear-gradient(to right, #11998ecb, #38ef7eb6);
   border: 1.5px solid rgb(0, 0, 0);
 }
 
@@ -296,7 +389,6 @@ p {
 .navbar-brand {
   color: white;
   font-weight: 400;
-  font-size: 24px;
 }
 
 .navbar-brand:hover {
@@ -329,7 +421,6 @@ a.nav-link {
   padding: 4px 24px 5px 24px;
   color: white;
   font-weight: 600;
-  font-size: 22px;
   margin-top: 56px;
 }
 
@@ -338,9 +429,13 @@ a.nav-link {
   color: black;
 }
 
+.btn:active {
+  color: rgba(255, 255, 255, 0.76) !important;
+  border-color: rgba(255, 255, 255, 0.767) !important;
+}
+
 .no-found {
   color: rgba(255, 255, 255, 0.573);
-  font-size: 32px;
 }
 
 .skeleton {
@@ -392,4 +487,33 @@ a.nav-link {
   background-color: rgba(26, 25, 25, 0.149);
   color: white;
   font-weight: 300;
+}
+
+.g-span {
+  padding-right: 2px;
+}
+
+@keyframes slide {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+.hero-image-section {
+  overflow: hidden;
+  /* background-image: linear-gradient(to right, #11998e, #38ef7d); */
+  background-color: transparent;
+  white-space: nowrap;
+}
+
+.images-slide {
+  display: inline-block;
+  animation: 5s slide infinite linear;
+}
+
+.images-slide img {
+  border-radius: 8px;
 }

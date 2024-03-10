@@ -1,4 +1,6 @@
 import { CardPlayButton } from "./CardPlayButton";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 
 export function TrackCard({
   // eslint-disable-next-line react/prop-types
@@ -17,11 +19,12 @@ export function TrackCard({
   return (
     <div className="card">
       <div className="image-container">
-        <img
+        <LazyLoadImage
           src={imageUrl}
-          alt={`album cover of the song: ${trackName}`}
           className="card-img-top"
-          loading="lazy"
+          alt={`album cover of the song: ${trackName}`}
+          effect="blur"
+          wrapperClassName="card-img-top"
         />
         <div className="overlay"></div>
         <button className="centered-button">
