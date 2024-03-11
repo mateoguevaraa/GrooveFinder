@@ -1,5 +1,6 @@
 import { CardPlayButton } from "./CardPlayButton";
 import { LazyLoadImage } from "react-lazy-load-image-component";
+import placeholder from "../images/placeholder-grey.webp";
 import "react-lazy-load-image-component/src/effects/blur.css";
 
 export function TrackCard({
@@ -19,21 +20,20 @@ export function TrackCard({
   return (
     <div className="card">
       <div className="image-container">
-        <div className="card-image-size">
-          <LazyLoadImage
-            src={imageUrl}
-            className="card-img-top"
-            alt={`album cover of the song: ${trackName}`}
-            effect="blur"
-            wrapperClassName="card-img-top"
-          />
-          <div className="overlay"></div>
-          <button className="centered-button">
-            <a href={songUrl} target="blank">
-              Listen on Spotify
-            </a>
-          </button>
-        </div>
+        <LazyLoadImage
+          src={imageUrl}
+          className="card-img-top"
+          alt={`album cover of the song: ${trackName}`}
+          effect="blur"
+          wrapperClassName="card-img-top"
+          placeholderSrc={placeholder}
+        />
+        <div className="overlay"></div>
+        <button className="centered-button">
+          <a href={songUrl} target="blank">
+            Listen on Spotify
+          </a>
+        </button>
       </div>
       <div className="card-body">
         <p className="card-name">
