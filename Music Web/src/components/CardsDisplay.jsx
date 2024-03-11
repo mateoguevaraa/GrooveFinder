@@ -4,9 +4,7 @@ import { TrackCard } from "./TrackCard";
 import { TrackCardSkeleton } from "./TrackCardSkeleton";
 import { MusicPlayer } from "./MusicPlayer";
 import { useTrackStore } from "../store/trackStore";
-import heroImage1 from "../images/mock-GrooveFinder2-copia.jpg";
-import heroImage2 from "../images/287shots_so.png";
-import heroImage3 from "../images/mockup-phone-groove.jpg";
+import heroImage1 from "../images/mock-hero-x4.webp";
 
 export function CardsDisplay() {
   const { tracks, handleGenreGenerator, genre, loading } = useTracks();
@@ -60,7 +58,7 @@ export function CardsDisplay() {
                     <TrackCard
                       trackName={track.name}
                       artist={track.artists[0].name}
-                      imageUrl={track.album.images[1].url}
+                      imageUrl={track.album?.images[1]?.url}
                       songUrl={track.external_urls.spotify}
                       previewUrl={track.preview_url}
                       key={track.uri}
@@ -106,22 +104,46 @@ export function CardsDisplay() {
               >
                 Explore New Tracks
               </button>
+              <div className="hero-mock">
+                <img src={heroImage1} className="mock-laptop" loading="lazy" />
+              </div>
             </div>
           </main>
           <div className="hero-image-section">
-            <div className="images-slide">
-              <img src={heroImage1} className="hero-img-1" />
-              <img src={heroImage2} className="hero-image-2" />
-              <img src={heroImage3} className="hero-image-3" />
+            <div className="words-slide">
+              <span>Unlock new tracks</span>
+              <i className="fa-solid fa-diamond"></i>
+              <span>Find your groove</span>
+              <i className="fa-solid fa-diamond"></i>
+              <span>Feel the rhythm</span>
+              <i className="fa-solid fa-diamond"></i>
+              <span>Let the music take you places</span>
+              <i className="fa-solid fa-diamond"></i>
+              <span>Repeat.</span>
+              <i className="fa-solid fa-diamond"></i>
             </div>
-            <div className="images-slide">
-              <img src={heroImage1} className="hero-img-1" />
-              <img src={heroImage2} className="hero-image-2" />
-              <img src={heroImage3} className="hero-image-3" />
+            <div className="words-slide words-2">
+              <span>Unlock new tracks</span>
+              <i className="fa-solid fa-diamond"></i>
+              <span>Find your groove</span>
+              <i className="fa-solid fa-diamond"></i>
+              <span>Feel the rhythm</span>
+              <i className="fa-solid fa-diamond"></i>
+              <span>Let the music take you places</span>
+              <i className="fa-solid fa-diamond"></i>
+              <span>Repeat.</span>
+              <i className="fa-solid fa-diamond"></i>
             </div>
           </div>
         </>
       ) : null}
+      <footer>
+        <div className="footer-content">
+          <p>
+            &copy; 2024 GrooveFinder created by Mateo Guevara.
+          </p>
+        </div>
+      </footer>
     </>
   );
 }

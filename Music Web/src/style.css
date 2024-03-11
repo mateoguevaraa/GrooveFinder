@@ -61,6 +61,7 @@ body {
   }
   .btn {
     margin-left: 0.8rem;
+    font-size: 22px;
   }
   .no-found {
     margin-left: 0.8rem;
@@ -88,22 +89,34 @@ body {
     font-size: 22px;
   }
 
-  .btn {
-    font-size: 22px;
-  }
-
   .hero-image-section {
-    margin-top: 164px;
+    margin-top: 100px;
     padding: 64px 0px;
   }
 
-  .images-slide img {
-    height: 250px;
-    margin: 0 40px;
+  .words-slide span {
+    height: 120px;
+    font-size: 90px;
   }
 
   .navbar-brand {
     font-size: 24px;
+  }
+
+  .card-image-size {
+    height: 257.48px;
+  }
+
+  .hero-mock img {
+    margin-top: 90px;
+  }
+
+  .fa-diamond {
+    padding-top: 35px;
+  }
+
+  .footer-content {
+    margin-top: 180px;
   }
 }
 
@@ -117,6 +130,7 @@ body {
   }
   .btn {
     margin-left: 2.5rem;
+    font-size: 22px;
   }
   .no-found {
     margin-left: 2.5rem;
@@ -145,10 +159,6 @@ body {
     font-size: 18px;
   }
 
-  .btn {
-    font-size: 22px;
-  }
-
   .hero-image-section {
     margin-top: 120px;
     padding: 44px 0;
@@ -160,6 +170,27 @@ body {
   }
   .navbar-brand {
     font-size: 24px;
+  }
+  .card-image-size {
+    height: 348.33px;
+  }
+
+  .hero-mock img {
+    margin-top: 60px;
+  }
+
+  .words-slide span {
+    height: 100px;
+    font-size: 70px;
+  }
+
+  .fa-diamond {
+    font-size: 15px;
+    padding-top: 20px;
+  }
+
+  .footer-content {
+    margin-top: 120px;
   }
 }
 
@@ -174,6 +205,7 @@ body {
   }
   .btn {
     margin-left: 2.5rem;
+    font-size: 18px;
   }
   .no-found {
     margin-left: 2.5rem;
@@ -196,19 +228,13 @@ body {
     max-width: 85%;
   }
   .btn-hero {
-    font-size: 16px;
-  }
-
-  .btn {
-    font-size: 18px;
+    font-size: 20px;
   }
 
   .hero-image-section {
     padding-left: 2.5rem;
     padding-right: 2.5rem;
-  }
-  .hero-image-section {
-    margin-top: 100px;
+    margin-top: 50px;
     padding: 44px 0;
   }
 
@@ -220,6 +246,29 @@ body {
   .navbar-brand {
     font-size: 18px;
   }
+
+  .card-image-size {
+    height: 348.67px;
+  }
+
+  .hero-mock img {
+    margin-top: 60px;
+  }
+
+  .words-slide span {
+    height: 60px;
+    font-size: 40px;
+  }
+
+  .fa-diamond {
+    font-size: 10px;
+    padding-top: 10px;
+  }
+
+  .footer-content {
+    margin-top: 100px;
+    font-size: 14px;
+  }
 }
 
 body {
@@ -227,6 +276,15 @@ body {
 }
 
 main {
+  max-width: 850px;
+  margin: 0 auto;
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-variation-settings: "slnt" 0;
+}
+
+footer {
   max-width: 850px;
   margin: 0 auto;
   font-family: "Inter", sans-serif;
@@ -341,7 +399,7 @@ p {
 }
 
 .button-audio {
-  margin-bottom: -3px;
+  margin-bottom: 1px;
   background-color: transparent;
   border-color: transparent;
   border-radius: 100%;
@@ -495,25 +553,69 @@ a.nav-link {
 
 @keyframes slide {
   from {
-    transform: translateX(0);
+    transform: translateX(100%);
   }
   to {
     transform: translateX(-100%);
   }
 }
 
+@keyframes slide2 {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-200%);
+  }
+}
+
 .hero-image-section {
   overflow: hidden;
   /* background-image: linear-gradient(to right, #11998e, #38ef7d); */
-  background-color: transparent;
+  position: relative;
+  display: flex;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #ffff, transparent);
+}
+
+.words-slide {
+  display: flex;
+  align-items: center;
   white-space: nowrap;
+  animation: 30s slide infinite linear;
+  animation-delay: calc(30s * -1);
 }
 
-.images-slide {
-  display: inline-block;
-  animation: 5s slide infinite linear;
+.words-2 {
+  animation: 30s slide2 infinite linear;
+  animation-delay: calc(30s / -2);
 }
 
-.images-slide img {
-  border-radius: 8px;
+.words-slide span {
+  display: inline-flex;
+  padding: 0px 40px;
+  transition: 0.5s;
+  color: white;
+  margin-top: 0px;
+  font-weight: 400;
+}
+
+.card-image-size {
+  background-color: #45444456;
+}
+
+.hero-mock img {
+  max-width: 100%;
+  height: 100%;
+}
+
+.fa-diamond {
+  color: #38ef7e9e;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.79);
 }

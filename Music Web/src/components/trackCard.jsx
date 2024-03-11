@@ -19,19 +19,21 @@ export function TrackCard({
   return (
     <div className="card">
       <div className="image-container">
-        <LazyLoadImage
-          src={imageUrl}
-          className="card-img-top"
-          alt={`album cover of the song: ${trackName}`}
-          effect="blur"
-          wrapperClassName="card-img-top"
-        />
-        <div className="overlay"></div>
-        <button className="centered-button">
-          <a href={songUrl} target="blank">
-            Listen on Spotify
-          </a>
-        </button>
+        <div className="card-image-size">
+          <LazyLoadImage
+            src={imageUrl}
+            className="card-img-top"
+            alt={`album cover of the song: ${trackName}`}
+            effect="blur"
+            wrapperClassName="card-img-top"
+          />
+          <div className="overlay"></div>
+          <button className="centered-button">
+            <a href={songUrl} target="blank">
+              Listen on Spotify
+            </a>
+          </button>
+        </div>
       </div>
       <div className="card-body">
         <p className="card-name">
