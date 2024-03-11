@@ -17,69 +17,73 @@ export function CardsDisplay() {
 
   return (
     <>
-      <main>
-        {firstTime ? null : (
-          <button
-            onClick={() => {
-              handleGenreGenerator();
-              userFirstTime();
-              setCurrentTrack({
-                id: null,
-                artist: null,
-                trackName: null,
-                previewUrl: null,
-              });
-            }}
-            className="btn"
-          >
-            Explore New Genre
-          </button>
-        )}
-        {genre ? (
-          <h3 className="genre-title">
-            {genre}
-            <span className="w-gradient">.</span>
-          </h3>
-        ) : null}
-        {firstTime ? null : (
-          <>
-            {tracks.length > 0 ? <MusicPlayer /> : null}
-            {loading ? (
-              <section className="tracks-display">
-                <TrackCardSkeleton />
-                <TrackCardSkeleton />
-                <TrackCardSkeleton />
-              </section>
-            ) : null}
-            {firstTime === false && tracks.length > 0 && loading === false ? (
-              <section className="tracks-display">
-                {tracks.map(function (track, index) {
-                  return (
-                    <TrackCard
-                      trackName={track.name}
-                      artist={track.artists[0].name}
-                      imageUrl={track.album?.images[1]?.url}
-                      songUrl={track.external_urls.spotify}
-                      previewUrl={track.preview_url}
-                      key={track.uri}
-                      trackId={track.id}
-                      index={index}
-                    />
-                  );
-                })}
-              </section>
-            ) : null}
-            {firstTime === false && loading === false && tracks.length === 0 ? (
-              <p className="no-found">
-                Oops, no tunes found in the {genre} genre.
-              </p>
-            ) : null}
-          </>
-        )}
-      </main>
+      {firstTime === false ? (
+        <main>
+          {firstTime ? null : (
+            <button
+              onClick={() => {
+                handleGenreGenerator();
+                userFirstTime();
+                setCurrentTrack({
+                  id: null,
+                  artist: null,
+                  trackName: null,
+                  previewUrl: null,
+                });
+              }}
+              className="btn"
+            >
+              Explore New Genre
+            </button>
+          )}
+          {genre ? (
+            <h3 className="genre-title">
+              {genre}
+              <span className="w-gradient">.</span>
+            </h3>
+          ) : null}
+          {firstTime ? null : (
+            <>
+              {tracks.length > 0 ? <MusicPlayer /> : null}
+              {loading ? (
+                <section className="tracks-display">
+                  <TrackCardSkeleton />
+                  <TrackCardSkeleton />
+                  <TrackCardSkeleton />
+                </section>
+              ) : null}
+              {firstTime === false && tracks.length > 0 && loading === false ? (
+                <section className="tracks-display">
+                  {tracks.map(function (track, index) {
+                    return (
+                      <TrackCard
+                        trackName={track.name}
+                        artist={track.artists[0].name}
+                        imageUrl={track.album?.images[1]?.url}
+                        songUrl={track.external_urls.spotify}
+                        previewUrl={track.preview_url}
+                        key={track.uri}
+                        trackId={track.id}
+                        index={index}
+                      />
+                    );
+                  })}
+                </section>
+              ) : null}
+              {firstTime === false &&
+              loading === false &&
+              tracks.length === 0 ? (
+                <p className="no-found">
+                  Oops, no tunes found in the {genre} genre.
+                </p>
+              ) : null}
+            </>
+          )}
+        </main>
+      ) : null}
       {tracks.length === 0 && firstTime ? (
         <>
-          <main>
+          <div className="landing-page">
             <div className="hero-section">
               <h1 className="welcome-important">
                 Discover New <span className="w-gradient g-span">Grooves</span>,
@@ -105,43 +109,46 @@ export function CardsDisplay() {
                 Explore New Tracks
               </button>
               <div className="hero-mock">
-                <img src={heroImage1} className="mock-laptop" loading="lazy" />
+                <img
+                  src={heroImage1}
+                  className="mock-laptop"
+                  loading="lazy"
+                  alt="GrooveFinder in mobile and desktop view."
+                />
+              </div>
+              </div>
+              <div className="hero-image-section">
+                <div className="words-slide">
+                  <span>Unlock new tracks</span>
+                  <i className="fa-solid fa-diamond"></i>
+                  <span>Find your groove</span>
+                  <i className="fa-solid fa-diamond"></i>
+                  <span>Feel the rhythm</span>
+                  <i className="fa-solid fa-diamond"></i>
+                  <span>Let the music take you places</span>
+                  <i className="fa-solid fa-diamond"></i>
+                  <span>Repeat.</span>
+                  <i className="fa-solid fa-diamond"></i>
+                </div>
+                <div className="words-slide words-2">
+                  <span>Unlock new tracks</span>
+                  <i className="fa-solid fa-diamond"></i>
+                  <span>Find your groove</span>
+                  <i className="fa-solid fa-diamond"></i>
+                  <span>Feel the rhythm</span>
+                  <i className="fa-solid fa-diamond"></i>
+                  <span>Let the music take you places</span>
+                  <i className="fa-solid fa-diamond"></i>
+                  <span>Repeat.</span>
+                  <i className="fa-solid fa-diamond"></i>
+                </div>
               </div>
             </div>
-          </main>
-          <div className="hero-image-section">
-            <div className="words-slide">
-              <span>Unlock new tracks</span>
-              <i className="fa-solid fa-diamond"></i>
-              <span>Find your groove</span>
-              <i className="fa-solid fa-diamond"></i>
-              <span>Feel the rhythm</span>
-              <i className="fa-solid fa-diamond"></i>
-              <span>Let the music take you places</span>
-              <i className="fa-solid fa-diamond"></i>
-              <span>Repeat.</span>
-              <i className="fa-solid fa-diamond"></i>
-            </div>
-            <div className="words-slide words-2">
-              <span>Unlock new tracks</span>
-              <i className="fa-solid fa-diamond"></i>
-              <span>Find your groove</span>
-              <i className="fa-solid fa-diamond"></i>
-              <span>Feel the rhythm</span>
-              <i className="fa-solid fa-diamond"></i>
-              <span>Let the music take you places</span>
-              <i className="fa-solid fa-diamond"></i>
-              <span>Repeat.</span>
-              <i className="fa-solid fa-diamond"></i>
-            </div>
-          </div>
         </>
       ) : null}
       <footer>
         <div className="footer-content">
-          <p>
-            &copy; 2024 GrooveFinder created by Mateo Guevara.
-          </p>
+          <p>&copy; 2024 GrooveFinder created by Mateo Guevara.</p>
         </div>
       </footer>
     </>

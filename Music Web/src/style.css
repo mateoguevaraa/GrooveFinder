@@ -71,7 +71,7 @@ body {
   .skeleton-img {
     height: 257px;
   }
-  .hero-section {
+  .landing-page {
     margin-top: 95px;
   }
 
@@ -150,7 +150,7 @@ body {
   .skeleton-img {
     height: 348.33px;
   }
-  .hero-section {
+  .landing-page {
     margin-top: 95px;
     padding: 0px 50px 0px 50px;
   }
@@ -234,7 +234,7 @@ body {
   .skeleton-img {
     height: 422px;
   }
-  .hero-section {
+  .landing-page {
     margin-top: 66px;
     padding: 0px 20px 0px 20px;
   }
@@ -310,6 +310,20 @@ main {
   font-optical-sizing: auto;
   font-style: normal;
   font-variation-settings: "slnt" 0;
+  min-height: 100vh;
+}
+
+.hero-section {
+  max-width: 850px;
+  margin: 0 auto;
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-variation-settings: "slnt" 0;
+}
+
+.landing-page {
+  min-height: 100vh;
 }
 
 footer {
@@ -599,9 +613,9 @@ a.nav-link {
 
 .hero-image-section {
   overflow: hidden;
-  /* background-image: linear-gradient(to right, #11998e, #38ef7d); */
   position: relative;
   display: flex;
+  max-width: 100%;
   -webkit-mask-image: linear-gradient(90deg, transparent, #ffff, transparent);
 }
 
@@ -653,4 +667,8 @@ a.nav-link {
   align-items: center;
   justify-content: center;
   margin-top: 5px;
+}
+
+.nav-link {
+  padding: 0 !important;
 }
