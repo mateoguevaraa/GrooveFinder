@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useTracks } from "../services/musicFetch";
-import { TrackCard } from "./TrackCard";
-import { TrackCardSkeleton } from "./TrackCardSkeleton";
+import { TrackCard } from "./trackCard";
+import { TrackCardSkeleton } from "./trackCardSkeleton";
 import { MusicPlayer } from "./MusicPlayer";
 import { useTrackStore } from "../store/trackStore";
 import heroImage1 from "../images/mock-hero-x4.webp";
@@ -116,34 +116,34 @@ export function CardsDisplay() {
                   alt="GrooveFinder in mobile and desktop view."
                 />
               </div>
+            </div>
+            <div className="hero-image-section">
+              <div className="words-slide">
+                <span>Unlock new tracks</span>
+                <i className="fa-solid fa-diamond"></i>
+                <span>Find your groove</span>
+                <i className="fa-solid fa-diamond"></i>
+                <span>Feel the rhythm</span>
+                <i className="fa-solid fa-diamond"></i>
+                <span>Let the music take you places</span>
+                <i className="fa-solid fa-diamond"></i>
+                <span>Repeat.</span>
+                <i className="fa-solid fa-diamond"></i>
               </div>
-              <div className="hero-image-section">
-                <div className="words-slide">
-                  <span>Unlock new tracks</span>
-                  <i className="fa-solid fa-diamond"></i>
-                  <span>Find your groove</span>
-                  <i className="fa-solid fa-diamond"></i>
-                  <span>Feel the rhythm</span>
-                  <i className="fa-solid fa-diamond"></i>
-                  <span>Let the music take you places</span>
-                  <i className="fa-solid fa-diamond"></i>
-                  <span>Repeat.</span>
-                  <i className="fa-solid fa-diamond"></i>
-                </div>
-                <div className="words-slide words-2">
-                  <span>Unlock new tracks</span>
-                  <i className="fa-solid fa-diamond"></i>
-                  <span>Find your groove</span>
-                  <i className="fa-solid fa-diamond"></i>
-                  <span>Feel the rhythm</span>
-                  <i className="fa-solid fa-diamond"></i>
-                  <span>Let the music take you places</span>
-                  <i className="fa-solid fa-diamond"></i>
-                  <span>Repeat.</span>
-                  <i className="fa-solid fa-diamond"></i>
-                </div>
+              <div className="words-slide words-2">
+                <span>Unlock new tracks</span>
+                <i className="fa-solid fa-diamond"></i>
+                <span>Find your groove</span>
+                <i className="fa-solid fa-diamond"></i>
+                <span>Feel the rhythm</span>
+                <i className="fa-solid fa-diamond"></i>
+                <span>Let the music take you places</span>
+                <i className="fa-solid fa-diamond"></i>
+                <span>Repeat.</span>
+                <i className="fa-solid fa-diamond"></i>
               </div>
             </div>
+          </div>
         </>
       ) : null}
       <footer>
