@@ -9,23 +9,32 @@ export function useTracks() {
   const [randomIndex, setRandomIndex] = useState();
   const [genre, setGenre] = useState();
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
   async function searchArtistByGenre(genre) {
     setLoading(true);
-    const offset = Math.floor(Math.random() * 40);
-    const response = await fetch(
-      `https://api.spotify.com/v1/search?q=genre%3A${genre}&type=track&offset=${offset}&limit=15`,
-      {
-        headers: {
-          Authorization: "Bearer " + (await getAccessToken()),
-          "Content-Type": "application/json",
-        },
+    try {
+      const offset = Math.floor(Math.random() * 40);
+      const response = await fetch(
+        `https://api.spotify.com/v1/search?q=genre%3A${genre}&type=track&offset=${offset}&limit=15`,
+        {
+          headers: {
+            Authorization: "Bearer " + (await getAccessToken()),
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      if (!response.ok) {
+        throw new Error("Failed to fetch tracks from Spotify API");
       }
-    );
-    const data = await response.json();
-    const tracksFetch = data.tracks.items;
-    setTracks(tracksFetch);
-    setLoading(false);
+      const data = await response.json();
+      const tracksFetch = data.tracks.items;
+      setTracks(tracksFetch);
+    } catch (error) {
+      setError(error.message);
+    } finally {
+      setLoading(false);
+    }
   }
 
   const handleGenreGenerator = () => {
@@ -41,18 +50,25 @@ export function useTracks() {
   };
 
   async function getAccessToken() {
-    const response = await fetch("https://accounts.spotify.com/api/token", {
-      method: "POST",
-      headers: {
-        Authorization:
-          "Basic " + btoa(clientIdSpotify + ":" + clientSecretIdSpotify),
-        "Content-Type": "application/x-www-form-urlencoded",
-      },
-      body: "grant_type=client_credentials",
-    });
-    const data = await response.json();
-    return data.access_token;
+    try {
+      const response = await fetch("https://accounts.spotify.com/api/token", {
+        method: "POST",
+        headers: {
+          Authorization:
+            "Basic " + btoa(clientIdSpotify + ":" + clientSecretIdSpotify),
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: "grant_type=client_credentials",
+      });
+      if (!response.ok) {
+        throw new Error("Failed to fetch access token from Spotify API");
+      }
+      const data = await response.json();
+      return data.access_token;
+    } catch (error) {
+      setError(error.message);
+    }
   }
 
-  return { tracks, handleGenreGenerator, genre, loading };
+  return { tracks, handleGenreGenerator, genre, loading, error };
 }
